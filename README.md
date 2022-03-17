@@ -1,5 +1,5 @@
 # Javascript-Quiz
-The purpose of this program was to learn Javascript and understanding how to show/hide content using `display` and understanding basic Javascript. 
+The purpose of this program was to learn Javascript and understanding how to show/hide content using `display`. 
 
 User Guide:
 Simply answer the questions as you hit the next button to go to the next question. 
