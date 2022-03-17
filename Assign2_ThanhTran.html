@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		table{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		th, td{
+			border: 1px solid black;
+			padding: 10px;
+		}
+
+		.question{
+			width: 400px;
+			margin: 0 auto;
+			border: 1px solid black;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+	</style>
+
+</head>
+<body>
+
+<script type="text/javascript">
+
+	var questions = [
+					{
+						question: 'How do we declare a variable in javascript?',
+						choiceA: 'using the keywords int, double, string etc.',
+						choiceB: 'there\'s no need for declaration',
+						choiceC: 'using keyword var',
+						choiceD: 'you need to call it\'s class object'
+					},
+					{	question: 'What does getElementById do?',
+					 	choiceA: 'fetches the content that is associated with the ID mentioned and replaces it\'s content',
+					 	choiceB: 'no such syntax',
+					 	choiceC: 'provides a random ID',
+					 	choiceD: 'just sounds cool'
+				 	},
+
+					{	question: 'What does the backslash do in javascript?',
+					 	choiceA: 'nothing',
+					 	choiceB: 'create a new line',
+					 	choiceC: 'have a backslash display for the user to see',
+					 	choiceD: `it\'s an escaping technique, to inform the compiler that the content after the "\" is part
+					 					of the string and is not the end of statement`
+					},
+
+					{	question:'What is backquotes used for in javascript?',
+						choiceA: 'does nothing',
+						choiceB: 'to inform the compiler that this is a string',
+						choiceC: 'used for formatting purposes, informing the compiler that it is not yet the end of a statement',
+						choiceD: 'end of statement'
+				},
+
+					{	question: 'What is the use of a function',
+						choiceA: 'to perform a certain task ',
+						choiceB: 'keeps your program organized and flexible',
+						choiceC: 'provides modularity',
+						choiceD: 'all of the above'
+				},
+	];
+
+// a function that shows and hides after each question
+	function show_hide(number) {
+		document.getElementById(`question_${number}`).style.display = 'none';
+		document.getElementById(`question_${number+1}`).style.display = 'block';
+	}
+
+	myOutput = '';
+
+	// asks each question by interating
+	for(var i = 0; i < questions.length; i++){
+		myNewOutput = `<div class="question" id="question_${i}">
+							<h2> ${questions[i].question} </h2>
+							<ul>
+								<li><input type = "radio" id = "button" name = "choice"> ${questions[i].choiceA}</li>
+								<li><input type = "radio" id = "button" name = "choice"> ${questions[i].choiceB}</li>
+								<li><input type = "radio" id = "button" name = "choice"> ${questions[i].choiceC}</li>
+								<li><input type = "radio" id = "button" name = "choice"> ${questions[i].choiceD}</li>
+							</ul>
+							<button onclick="show_hide(${i});" id="next_${i}">Next</button>
+						</div>`;
+		myOutput = myOutput + myNewOutput;
+	}
+
+	document.write(myOutput);
+
+// hide all questions
+	for(var i = 1; i<questions.length; i++){
+		document.getElementById(`question_${i}`).style.display = 'none';
+	}
+	
+	</script>
+</body>
+</html>
